@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   }
   else{
     window.location.href=`${APP_URL}/login/login.html`
+    console.log(`${APP_URL}/login/login.html`)
   }
 })
 

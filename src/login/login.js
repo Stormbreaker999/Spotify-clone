@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN, TOKEN_TYPE, EXPIRES_IN } from "../common";
-
+const APP_URL=import.meta.env.VITE_APP_URL;
 
 const CLIENT_ID=import.meta.env.VITE_CLIENT_ID;
 const scopes="user-top-read user-follow-read playlist-read user-library-read"
@@ -14,7 +14,7 @@ window.setItemsInLocalStorage=({accessToken, tokenType, expiresIn})=>{
     localStorage.setItem(ACCESS_TOKEN, accessToken);
     localStorage.setItem(TOKEN_TYPE, tokenType);
     localStorage.setItem(EXPIRES_IN, (Date.now()+(expiresIn*1000)));
-    window.location.href="http://localhost:3000"
+    window.location.href=APP_URL;
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 window.addEventListener("load", ()=>{
     const accessToken=localStorage.getItem(ACCESS_TOKEN);
     if(accessToken){
-        window.location.href="http://localhost:3000/dashboard/dashboard.html";
+        window.location.href=`${APP_URL}/dashboard/dashboard.html`
 
     }
     if(window.opener && !window.opener.closed){
@@ -34,6 +34,7 @@ window.addEventListener("load", ()=>{
         }
         const {hash}=window.location;
         const searchParams=new URLSearchParams(hash);
+        console.log(searchParams);
         const accessToken=searchParams.get("#access_token");
         const tokenType=searchParams.get("token_type");
         const expiresIn=searchParams.get("expires_in");
