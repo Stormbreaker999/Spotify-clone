@@ -1,1 +1,0 @@
-import"./style-B1I-Pwiw.js";const o="http://localhost:4173/Spotify-clone";document.addEventListener("DOMContentLoaded",()=>{localStorage.getItem("accessToken")?window.location.href=`${o}/dashboard/dashboard.html`:(window.location.href=`${o}/login/login.html`,console.log(`${o}/login/login.html`))});
