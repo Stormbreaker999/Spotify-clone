@@ -22,3 +22,21 @@
 .track.selected .play{
   visibility: visible;
 }
+@media screen and (max-width:400px) {
+  .grid-template-areas{
+    grid-template-areas: "main main"
+    "now-playing now-playing";
+  }
+  .sm-hidden{
+    display: none;
+  }
+}
+@media screen and (min-width:401px) {
+  .grid-template-areas{
+    grid-template-areas: "sidenav main"
+    "now-playing now-playing";
+  }
+  .sm-hidden{
+    display: block;
+  }
+}
